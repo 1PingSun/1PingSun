@@ -5,7 +5,7 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=1pingsun" alt="1pingsun" /></a> </p>
 
-- 📝 I regularly write articles on [1ping.org](1ping.org)
+- 📝 I regularly write articles on [https://1ping.org/](https://1ping.org/)
 
 - 📫 How to reach me **sunyipingtw@icloud.com**
 
