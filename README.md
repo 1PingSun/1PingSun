@@ -23,7 +23,9 @@
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=1pingsun&show_icons=true&locale=en" alt="1pingsun" /></p>
 
+<!--
 <p><img align="center" src="https://github-readme-streak-stats-olive-rho.vercel.app/?user=1pingsun&" alt="1pingsun" /></p>
+-->
 
 [![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=1PingSun&theme=merko)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
