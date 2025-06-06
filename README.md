@@ -25,6 +25,8 @@
 
 <p><img align="center" src="https://github-readme-streak-stats-olive-rho.vercel.app/?user=1pingsun&" alt="1pingsun" /></p>
 
+[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=1PingSun&theme=merko)](https://github.com/ashutosh00710/github-readme-activity-graph)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="dist/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="dist/github-snake.svg" />
