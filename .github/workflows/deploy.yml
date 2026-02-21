@@ -1,17 +1,20 @@
-name: 產生貢獻蛇形動畫
+name: 更新 GitHub Profile 動態內容
 
 on:
   schedule:
-    - cron: "0 */24 * * *"  # 每24小時執行
-  workflow_dispatch:
+    - cron: "0 0 * * *" # 每天午夜執行
+  workflow_dispatch: # 允許手動觸發
 
 jobs:
+  # ── Job 1：產生貢獻蛇形動畫 ──────────────────────────────────
   generate-snake:
+    name: 產生貢獻蛇形動畫
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
-      
+
       - uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -20,11 +23,39 @@ jobs:
             dist/github-snake-dark.svg?palette=github-dark
             dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
-      - name: 推送到 GitHub
+      - name: 推送蛇形動畫到 GitHub
         uses: EndBug/add-and-commit@v9
         with:
           message: '更新貢獻蛇形動畫'
           add: 'dist'
 
-      - name: GitHub Readme Stats Action
+  # ── Job 2：產生 GitHub Readme Stats 卡片 ─────────────────────
+  generate-stats:
+    name: 產生 GitHub Readme Stats 卡片
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 產生 Stats 卡片
         uses: stats-organization/github-readme-stats-action@v1.1.0
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true
+          path: dist/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 產生 Top Languages 卡片
+        uses: stats-organization/github-readme-stats-action@v1.1.0
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6
+          path: dist/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 推送 Stats 卡片到 GitHub
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: '更新 GitHub Readme Stats 卡片'
+          add: 'dist'
