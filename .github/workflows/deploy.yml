@@ -33,6 +33,7 @@ jobs:
   generate-stats:
     name: 產生 GitHub Readme Stats 卡片
     runs-on: ubuntu-latest
+    needs: generate-snake
     permissions:
       contents: write
     steps:
@@ -52,6 +53,14 @@ jobs:
           card: top-langs
           options: username=${{ github.repository_owner }}&layout=compact&langs_count=6
           path: dist/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate pin card
+        uses: readme-tools/github-readme-stats-action@v1
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=HackMaster-Pi
+          path: dist/pin-readme-tools-github-readme-stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 推送 Stats 卡片到 GitHub
