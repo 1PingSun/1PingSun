@@ -2,11 +2,10 @@ name: 更新 GitHub Profile 動態內容
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 每天午夜執行
-  workflow_dispatch: # 允許手動觸發
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
-  # ── Job 1：產生貢獻蛇形動畫 ──────────────────────────────────
   generate-snake:
     name: 產生貢獻蛇形動畫
     runs-on: ubuntu-latest
@@ -24,12 +23,14 @@ jobs:
             dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
       - name: 推送蛇形動畫到 GitHub
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: '更新貢獻蛇形動畫'
-          add: 'dist'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/
+          git diff --cached --quiet || git commit -m "更新貢獻蛇形動畫"
+          git pull --rebase --autostash
+          git push
 
-  # ── Job 2：產生 GitHub Readme Stats 卡片 ─────────────────────
   generate-stats:
     name: 產生 GitHub Readme Stats 卡片
     runs-on: ubuntu-latest
@@ -38,6 +39,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: main  # ← 確保拿到 generate-snake push 後的最新版本
 
       - name: 產生 Stats 卡片
         uses: stats-organization/github-readme-stats-action@v1.1.0
@@ -60,11 +63,14 @@ jobs:
         with:
           card: pin
           options: username=${{ github.repository_owner }}&repo=HackMaster-Pi
-          path: dist/pin-readme-tools-github-readme-stats.svg
+          path: dist/pin-HackMaster-Pi.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 推送 Stats 卡片到 GitHub
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: '更新 GitHub Readme Stats 卡片'
-          add: 'dist'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/
+          git diff --cached --quiet || git commit -m "更新 GitHub Readme Stats 卡片"
+          git pull --rebase --autostash
+          git push
