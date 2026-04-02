@@ -7,7 +7,7 @@
 
 - 📝 I regularly write articles on [https://1ping.org/](https://1ping.org/)
 
-- 📫 How to reach me **sunyipingtw@icloud.com**
+- 📫 How to reach me **me@1ping.org**
 
 <!-- <h3 align="left">Connect with me:</h3>
 <p align="left">
