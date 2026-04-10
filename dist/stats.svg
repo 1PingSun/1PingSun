@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">1Ping's GitHub Stats, Rank: A-</title>
-        <desc id="descId">Total Stars Earned: 240, Total Commits  (last year) : 1036, Total PRs: 15, Total Issues: 26, Contributed to (last year): 5</desc>
+        <desc id="descId">Total Stars Earned: 240, Total Commits  (last year) : 1037, Total PRs: 15, Total Issues: 26, Contributed to (last year): 5</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 83.14873836667182;
+        stroke-dashoffset: 83.14217836668115;
       }
     }
   
